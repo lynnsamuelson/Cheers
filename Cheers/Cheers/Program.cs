@@ -31,8 +31,22 @@ namespace Cheers
            System.Console.WriteLine(name + "'s just GRAND!");
            System.DateTime today = System.DateTime.Now;
            System.DateTime birthdayDate = Convert.ToDateTime(birthday);
-          (today - birthdayDate).Days;
-            System.Console.WriteLine("Your Birthday is in " + days + "days.");                   
+           System.Console.WriteLine(birthdayDate);
+           double days = (birthdayDate - today).TotalDays;
+           double numDays = Math.Round(days);
+           if (numDays == 0)
+            {
+                System.Console.WriteLine("Happy Birthday!");
+            } 
+           else if (numDays == 1)
+            {
+                System.Console.WriteLine("Your Birthday is in " + numDays + " day.");
+            }
+           else
+            {
+                System.Console.WriteLine("Your Birthday is in " + numDays + " days.");
+            }
+                                  
            System.Console.ReadKey();
         }
     }
