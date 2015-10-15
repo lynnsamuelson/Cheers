@@ -12,27 +12,33 @@ namespace Cheers
         {
            System.Console.WriteLine("Hello There! What's your name?");
            string name = System.Console.ReadLine();
-           System.Console.WriteLine("What's your birthday?");
+           System.Console.WriteLine("Hey " + name + ", What's your birthday? (MM/DD)");
            string birthday = System.Console.ReadLine();
             System.Console.WriteLine("Hi, " + name);
            name = name.ToUpper();
-           foreach (char letter in name)
+           string choose = "a";
+            foreach (char letter in name.ToLower())
             {
-                string choose = "a";
-                foreach (char an in "HALFNORSEMIX")
+                if (Char.IsLetter(letter))
                 {
-                    if (letter == an)
+                    foreach (char an in "halfnorsemix")
                     {
-                        choose = "an";
+                        if (letter == an)
+                        {
+                            choose = "an";
+                        }
                     }
-                }
-             System.Console.WriteLine("Give me " + choose + " " + letter);            
+                    System.Console.WriteLine("Give me " + choose + "..." + letter);
+                }       
             } 
            System.Console.WriteLine(name + "'s just GRAND!");
            System.DateTime today = System.DateTime.Now;
            System.DateTime birthdayDate = Convert.ToDateTime(birthday);
-           System.Console.WriteLine(birthdayDate);
            double days = (birthdayDate - today).TotalDays;
+           if (days < 0)
+            {
+                days = days + 365;
+            }
            double numDays = Math.Round(days);
            if (numDays == 0)
             {
